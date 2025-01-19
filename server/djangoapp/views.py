@@ -62,7 +62,6 @@ def registration(request):
     last_name = data['lastName']
     email = data['email']
     username_exist = False
-    email_exist = False
 
     try:
         # Check if user already exists
@@ -91,7 +90,7 @@ def registration(request):
         }
 
         return JsonResponse(data)
-    else :
+    else:
         data = {
             "userName": username,
             "error": "Already Registered"
@@ -104,7 +103,7 @@ def get_cars(request):
     count = CarMake.objects.filter().count()
     print(count)
 
-    if(count == 0):
+    if (count == 0):
         initiate()
 
     car_models = CarModel.objects.select_related('car_make')
@@ -122,7 +121,7 @@ def get_cars(request):
 # # Update the `get_dealerships` view to render the index page with
 # a list of dealerships
 def get_dealerships(request, state="All"):
-    if(state == "All"):
+    if (state == "All"):
         endpoint = "/fetchDealers"
     else:
         endpoint = "/fetchDealers/"+state
@@ -135,7 +134,7 @@ def get_dealerships(request, state="All"):
 # Create a `get_dealer_reviews` view to render the reviews of a dealer
 def get_dealer_reviews(request, dealer_id):
     # if dealer id has been provided
-    if(dealer_id):
+    if (dealer_id):
         endpoint = "/fetchReviews/dealer/"+str(dealer_id)
         reviews = get_request(endpoint)
 
@@ -151,7 +150,7 @@ def get_dealer_reviews(request, dealer_id):
 
 # Create a `get_dealer_details` view to render the dealer details
 def get_dealer_details(request, dealer_id):
-    if(dealer_id):
+    if (dealer_id):
         endpoint = "/fetchDealer/"+str(dealer_id)
         dealership = get_request(endpoint)
 
@@ -162,7 +161,7 @@ def get_dealer_details(request, dealer_id):
 
 # Create a `add_review` view to submit a review
 def add_review(request):
-    if(request.user.is_anonymous == False):
+    if (request.user.is_anonymous == False):
         data = json.loads(request.body)
         
         try:
