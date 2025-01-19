@@ -25,15 +25,15 @@ urlpatterns = [
         admin.site.urls
     ),
     path(
-        'djangoapp',
+        'djangoapp/',
         include('djangoapp.urls')
     ),
     path(
-        'about',
+        'about/',
         TemplateView.as_view(template_name="About.html")
     ),
     path(
-        'contact',
+        'contact/',
         TemplateView.as_view(template_name="Contact.html")
     ),
     path(
@@ -41,15 +41,15 @@ urlpatterns = [
         TemplateView.as_view(template_name="Home.html")
     ),
     path(
-        'login',
+        'login/',
         TemplateView.as_view(template_name="index.html")
     ),
     path(
-        'register',
+        'register/',
         TemplateView.as_view(template_name="index.html")
     ),
     path(
-        'dealers',
+        'dealers/',
         TemplateView.as_view(template_name="index.html")
     ),
     path(
